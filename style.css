@@ -47,7 +47,7 @@ nav ul li a {
     text-decoration: none;
     color: #ffff;
     font-size: 20px;
-    font-family: 'bebas kai';
+    font-family: 'Bebas Kai', sans-serif;
 }
 
 nav ul li a:hover {
@@ -101,7 +101,7 @@ nav ul li a:hover {
 }
 
 .heading{
-    font-family: "bebas kai";
+    font-family: 'Bebas Kai', sans-serif;
     font-size: 30pt;
     color: #fff;
     text-align: center;
@@ -149,7 +149,7 @@ footer{
 }
 
 .footer-bottom p {
-    font-family: "bebas kai";
+    font-family: 'Bebas Kai', sans-serif;
     font-size: 14px;
     word-spacing: 2px;
     text-transform: capitalize;
