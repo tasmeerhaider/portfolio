@@ -101,7 +101,7 @@ nav ul li a:hover {
 }
 
 .heading{
-    font-family: 'Bebas Kai', sans-serif;
+    font-family: 'Bebas Neue', cursive;
     font-size: 30pt;
     color: #fff;
     text-align: center;
@@ -178,6 +178,7 @@ footer{
         top: 130px;
         right: 0;
         z-index: 2;
+        padding: 0px;
     }
 
     nav ul li {
@@ -185,6 +186,7 @@ footer{
         text-align: center;
         margin-top: 20px;
         margin-bottom: 20px;
+        padding: 0px;
     }
 
     nav ul li a {
