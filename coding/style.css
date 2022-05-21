@@ -1,0 +1,215 @@
+body {
+    background-color: #3A3535;
+    margin: 0;
+    padding-top: 30px; 
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.navbar {
+    width: 100%;
+    margin-bottom: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 80px;
+    cursor: pointer;
+}
+
+.menu {
+    width: 35px;
+    cursor: pointer;
+    display: none;
+}
+
+nav {
+    flex: 1;
+    text-align: right;
+}
+
+nav ul li {
+    list-style: none;
+    display:inline-block;
+    padding-left: 40px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffff;
+    font-size: 20px;
+    font-family: 'bebas kai';
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.page {
+    width: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+
+}
+
+.pic-holder {
+    position: relative;
+    height: 300px;
+    border-radius: 10px;
+}
+
+.pic:hover {
+    border: solid #ffff;
+    padding: 0%;
+    transition: 0.2s;
+}
+
+.pic {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.image-holder {
+    height: auto;
+    border-radius: 10px;
+    padding-bottom: 20px;
+}
+
+.image {
+    display: block;
+    position: relative;
+    align-items: center;
+    object-fit: cover;
+    height: auto;
+    width: 50%;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.heading{
+    font-family: "bebas kai";
+    font-size: 30pt;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding-bottom: 40px;
+}
+
+footer{
+    background-color: #000;
+    margin-left: 0%;
+    height: auto;  
+    width: 100%;
+    padding-top: 40px;
+    color: #ffff;
+}
+
+.footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.footer-logo{
+    width: 60px;
+    cursor: pointer;
+}
+
+.footer-content p {
+    max-width: 1000px;
+    max-height: 300px;
+    margin: 20px 10px;
+    line-height: 28px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
+.footer-bottom {
+    background-color: #fff;
+    color: #000;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-family: "bebas kai";
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}
+
+.footer-content span {
+    text-transform: uppercase;
+    opacity: -4;
+    font-weight: 200;
+}
+
+@media only screen and (max-width:850px) {
+    
+    .container {
+        min-height: 65vh;
+    }
+
+    .logo {
+        width: 55px;
+    }
+
+    nav ul {
+        width: 100%;
+        background-color: rgb(0, 0, 0);
+        position: absolute;
+        top: 130px;
+        right: 0;
+        z-index: 2;
+    }
+
+    nav ul li {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    nav ul li a {
+        color: #ffff;
+    }
+    
+    .menu {
+        display: block;
+    }
+
+    #menulist{
+        overflow: hidden;
+        transition: 0.5s;
+    }
+
+    .page {
+        width: 100%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 20px;
+    }
+
+    .image {
+        width: 100%;
+    }
+
+}
