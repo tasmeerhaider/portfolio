@@ -18,7 +18,7 @@ jobs:
       - name: Report Success
         if: success()
         run: |
-          curl -X POST -H "Content-Type: application/json" -H "Bypass-Tunnel-Reminder: true" -d '{"repo":"tasmeerhaider/portfolio", "status":"passed", "executionTime":"N/A"}' https://big-keys-join.loca.lt/api/webhook
+          curl -X POST -H "Content-Type: application/json" -H "Bypass-Tunnel-Reminder: true" -d '{"repo":"tasmeerhaider/portfolio", "status":"passed", "executionTime":"N/A"}' https://cute-insects-bathe.loca.lt/api/webhook
 
       # This step ONLY fires if the test above fails
       - name: Report Failure
