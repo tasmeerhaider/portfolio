@@ -27,5 +27,5 @@ jobs:
       - name: Report Failure
         if: failure()
         run: |
-          curl -X POST -H "Content-Type: application/json" -d '{"repo":"tasmeerhaider/portfolio", "status":"failed", "executionTime":"N/A"}' https://chilly-kids-poke.loca.lt/api/webhook
+          curl -X POST -H "Content-Type: application/json" -d '{"repo":"tasmeerhaider/portfolio", "status":"failed", "executionTime":"N/A"}' https://big-keys-join.loca.lt/api/webhook
     
