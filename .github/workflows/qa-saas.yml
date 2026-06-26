@@ -1,0 +1,15 @@
+
+name: QA SaaS Runner
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - run: npm install -g @playwright/test
+      - run: npx playwright install --with-deps chromium
+      - run: npx playwright test
+      # Send webhook back to your SaaS when done
+      - run: curl -X POST -d '{"repo":"tasmeerhaider/portfolio", "status":"completed", "executionTime":"N/A"}' https://your-saas.com/api/webhook
+    
