@@ -9,8 +9,19 @@ jobs:
       - uses: actions/setup-node@v4
       - run: npm install -g @playwright/test
       - run: npx playwright install --with-deps chromium
+      
+      # Run the actual test
       - run: npx playwright test
-      # Send webhook back to your SaaS when done
-      # Send webhook back to your SaaS when done
-      - run: curl -X POST -H "Content-Type: application/json" -d '{"repo":"tasmeerhaider/portfolio", "status":"passed", "executionTime":"45s"}' https://localhost:3000/api/webhook
+        
+      # This step ONLY fires if the test above passes
+      - name: Report Success
+        if: success()
+        run: |
+          curl -X POST -H "Content-Type: application/json" -d '{"repo":"tasmeerhaider/portfolio", "status":"passed", "executionTime":"N/A"}' https://chilly-kids-poke.loca.lt/api/webhook
+
+      # This step ONLY fires if the test above fails
+      - name: Report Failure
+        if: failure()
+        run: |
+          curl -X POST -H "Content-Type: application/json" -d '{"repo":"tasmeerhaider/portfolio", "status":"failed", "executionTime":"N/A"}' https://chilly-kids-poke.loca.lt/api/webhook
     
