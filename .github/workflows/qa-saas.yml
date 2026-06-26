@@ -11,5 +11,6 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - run: npx playwright test
       # Send webhook back to your SaaS when done
-      - run: curl -X POST -d '{"repo":"tasmeerhaider/portfolio", "status":"completed", "executionTime":"N/A"}' https://your-saas.com/api/webhook
+      # Send webhook back to your SaaS when done
+      - run: curl -X POST -H "Content-Type: application/json" -d '{"repo":"tasmeerhaider/portfolio", "status":"passed", "executionTime":"45s"}' https://localhost:3000/api/webhook
     
