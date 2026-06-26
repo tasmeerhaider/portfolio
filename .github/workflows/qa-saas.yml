@@ -7,11 +7,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-      
-      # FIX: Initialize a temporary package.json and install Playwright locally
       - run: npm init -y
       - run: npm install @playwright/test
-      
       - run: npx playwright install --with-deps chromium
       
       # Run the actual test
@@ -21,11 +18,11 @@ jobs:
       - name: Report Success
         if: success()
         run: |
-          curl -X POST -H "Content-Type: application/json" -d '{"repo":"tasmeerhaider/portfolio", "status":"passed", "executionTime":"N/A"}' https://chilly-kids-poke.loca.lt/api/webhook
+          curl -X POST -H "Content-Type: application/json" -H "Bypass-Tunnel-Reminder: true" -d '{"repo":"tasmeerhaider/portfolio", "status":"passed", "executionTime":"N/A"}' https://big-keys-join.loca.lt/api/webhook
 
       # This step ONLY fires if the test above fails
       - name: Report Failure
         if: failure()
         run: |
-          curl -X POST -H "Content-Type: application/json" -d '{"repo":"tasmeerhaider/portfolio", "status":"failed", "executionTime":"N/A"}' https://big-keys-join.loca.lt/api/webhook
+          curl -X POST -H "Content-Type: application/json" -H "Bypass-Tunnel-Reminder: true" -d '{"repo":"tasmeerhaider/portfolio", "status":"failed", "executionTime":"N/A"}' https://cute-insects-bathe.loca.lt/api/webhook
     
