@@ -7,7 +7,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-      - run: npm install -g @playwright/test
+      
+      # FIX: Initialize a temporary package.json and install Playwright locally
+      - run: npm init -y
+      - run: npm install @playwright/test
+      
       - run: npx playwright install --with-deps chromium
       
       # Run the actual test
