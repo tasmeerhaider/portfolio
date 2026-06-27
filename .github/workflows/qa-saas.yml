@@ -24,7 +24,7 @@ jobs:
         run: |
           END_TIME=$(date +%s)
           DURATION=$((END_TIME - START_TIME))s
-          curl -X POST -H "Content-Type: application/json" -d '{"repo":"tasmeerhaider/portfolio", "status":"passed", "executionTime":"'$DURATION'", "logUrl":"https://github.com/'$GITHUB_REPOSITORY'/actions/runs/'$GITHUB_RUN_ID'"}' https://till-unpledged-half.ngrok-free.dev/api/webhook
+          curl -X POST -H "Content-Type: application/json" -d '{"repo":"tasmeerhaider/portfolio", "status":"passed", "executionTime":"'$DURATION'", "logUrl":"https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"}' https://till-unpledged-half.ngrok-free.dev/api/webhook
 
       # 4. If it fails, stop the watch, calculate the difference, and send it
       - name: Report Failure
@@ -32,5 +32,5 @@ jobs:
         run: |
           END_TIME=$(date +%s)
           DURATION=$((END_TIME - START_TIME))s
-          curl -X POST -H "Content-Type: application/json" -d '{"repo":"tasmeerhaider/portfolio", "status":"failed", "executionTime":"'$DURATION'", "logUrl":"https://github.com/'$GITHUB_REPOSITORY'/actions/runs/'$GITHUB_RUN_ID'"}' https://till-unpledged-half.ngrok-free.dev/api/webhook
+          curl -X POST -H "Content-Type: application/json" -d '{"repo":"tasmeerhaider/portfolio", "status":"failed", "executionTime":"'$DURATION'", "logUrl":"https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"}' https://till-unpledged-half.ngrok-free.dev/api/webhook
     
