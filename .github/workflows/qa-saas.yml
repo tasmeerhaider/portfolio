@@ -1,4 +1,3 @@
-
 name: QA SaaS Runner
 on: [push, pull_request]
 jobs:
@@ -11,14 +10,11 @@ jobs:
       - run: npm install @playwright/test
       - run: npx playwright install --with-deps chromium
       
-      # 1. Start the stopwatch and save it to GitHub's temporary environment
       - name: Record Start Time
         run: echo "START_TIME=$(date +%s)" >> $GITHUB_ENV
       
-      # 2. Run the actual test
-      - run: npx playwright test
+      - run: npx playwright test tests/saas.spec.ts
         
-# 3. If it passes, stop the watch, calculate the difference, and send it
       - name: Report Success
         if: success()
         run: |
@@ -26,11 +22,9 @@ jobs:
           DURATION=$((END_TIME - START_TIME))s
           curl -X POST -H "Content-Type: application/json" -d '{"repo":"tasmeerhaider/portfolio", "status":"passed", "executionTime":"'$DURATION'", "logUrl":"https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"}' https://till-unpledged-half.ngrok-free.dev/api/webhook
 
-      # 4. If it fails, stop the watch, calculate the difference, and send it
       - name: Report Failure
         if: failure()
         run: |
           END_TIME=$(date +%s)
           DURATION=$((END_TIME - START_TIME))s
           curl -X POST -H "Content-Type: application/json" -d '{"repo":"tasmeerhaider/portfolio", "status":"failed", "executionTime":"'$DURATION'", "logUrl":"https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"}' https://till-unpledged-half.ngrok-free.dev/api/webhook
-    
